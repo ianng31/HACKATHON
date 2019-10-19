@@ -74,27 +74,52 @@ h1 {
     </form>
     </nav>
 
-<!--
-    Upload button
--->
-    <div class="file-upload">
-            <input class="file-upload__input" type="file" name="myFile" id="myFile"> <!-- submitted to server side-->
-            <button class="file-upload__button"type="button">Choose Notes</button>
-            <span class="file-upload__label">No file selected</span>
-        </div>
-        
-        
-        <div class="container">
-            <div class="large-12 medium-12 small-12 cell">
-              <label>File
-                <input type="file" id="file" ref="file" v-on:change="handleFileUpload()"/>
-              </label>
-                <button v-on:click="submitFile()">Submit</button>
+    <!--Actionable list group-->
+      <div class="row">
+            <div class="col-4">
+              <div class="list-group" id="list-tab" role="tablist">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">COMP1511</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Luke: 5</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Henry: 2</a>
+                <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Ian: 0</a>
+                <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="file:///C:/Users/ianng/Desktop/CODE/hackathon/HACKATHON/frontend/upload.html#list-home" role="tab" aria-controls="settings">Upload</a>
+              </div>
             </div>
-        </div>
+            <div class="col-8">
+
+          <object data="notes.pdf" type="application/pdf" width="100%" height="800px"> 
+            <p>It appears you don't have a PDF plugin for this browser.
+             No biggie... you can <a href="howto.pdf">click here to
+            download the PDF file.</a></p>  
+          </object>
+            </div>
+          </div>
+
+
+      <!--
+          TOASTS
+      -->
+      <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+            <div class="toast" style="position: absolute; top: 0; right: 0;">
+              <div class="toast-header">
+                <img src="..." class="rounded mr-2" alt="...">
+                <strong class="mr-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+          </div>
+        
 </div>
 
 
+
+    
     <script>
 var vm = new Vue({
   el: "#vue",
@@ -106,29 +131,6 @@ var vm = new Vue({
   methods: {
     dosomething: function (event) {
       this.our_data = [{"name": "hello!"}];
-    },
-    handleFileUpload(){
-        this.file = this.$refs.file.files[0];
-    },
-    submitFile(){
-        let formData = new FormData();
-        formData.append('file', this.file);
-        formData.append('first_name', this.firstName);
-        formData.append('last_name', this.lastName);
-        axios.post( 'file:///C:/Users/ianng/Desktop/CODE/hackathon/HACKATHON/frontend',
-                formData,
-                {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-              }
-            ).then(function(){
-          console.log('SUCCESS!!');
-          this.files = '';
-        })
-        .catch(function(){
-          console.log('FAILURE!!');
-        });
     },
     
   },
