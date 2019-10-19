@@ -39,36 +39,20 @@ h1 {
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </nav>
-
-      <div v-for="d in our_data">
-	      <div class="alert alert-danger" role="alert">
-	      {{d.name}}
-        </div>
-      </div>
-      <input class="form-control" type="text" v-model="my_input"></input>
-      <button type="button" v-on:click="dosomething" class="btn btn-primary">Primary</button> 
       
       <!-- Sneaky card-->
       
-      
+      <div v-for="items in posts">
       <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">hi</h5>
-          <p class="card-text">Subject description.</p>
-          <a href="file:///Users/henryroth/Documents/Projects/HACKATHON/frontend/docs.html#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">{{items.title}}</h5>
+          <p class="card-text">{{items.description}}</p>
+          <a href="file:///Users/henryroth/Documents/Projects/HACKATHON/frontend/docs.html#" class="btn btn-primary">Go to {{items.title}} notes</a>
         </div>
       </div>
-      
-        <blog-post
-        v-for="post in posts"
-        v-bind:key="post.id"
-        v-bind:title="post.title"
-      ><h3>{{ title }}</h3></blog-post>
-      <div class="blog-post">
-          <h3>{{ title }}</h3>
-          <div v-html="content"></div>
-        </div>
     </div>
+
+      
 
 
     
@@ -79,9 +63,9 @@ var vm = new Vue({
     my_input: "7",
     our_data: [],
     posts: [
-      { id: 1, title: 'My journey with Vue' },
-      { id: 2, title: 'Blogging with Vue' },
-      { id: 3, title: 'Why Vue is so fun' }
+      { id: 1, title: 'COMP1511', description: "Some Fun" },
+      { id: 2, title: 'COMP3821', description: "Good Fun" },
+      { id: 3, title: 'COMP6771', description: "Great Fun" }
     ]
   },
   methods: {
