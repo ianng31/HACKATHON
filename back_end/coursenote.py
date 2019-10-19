@@ -1,26 +1,30 @@
-from back_end.user import User
-from back_end.course import Course
+from course import Course
 
 class CourseNote:
-    def __init__(self, notes, rating, user, course):
+    def __init__(self, title, noteLink, rating, student, course):
         self.__title = title
         self.__noteLink = noteLink
         self.__rating = rating
-        self.__user = user
+        self.__student = student
         self.__course = course
     
+    @property
     def getTitle(self):
         return self.__title
 
+    @property
     def getNoteLink(self):
         return self.__noteLink
 
+    @property
     def getRating(self):
         return self.__rating
 
-    def getUser(self):
-        return self.__user
+    @property
+    def getStudent(self):
+        return self.__student
 
+    @property
     def getCourse(self):
         return self.__course
 
@@ -34,10 +38,10 @@ class CourseNote:
             self.rating = self.__rating - 1
     
     def __str__(self):
-        str = "title: " + self.getTitle + "\n"
-        str += "noteLink: " + self.getNoteLink + "\n"
-        str += "rating: " + self.getRating + "\n"
-        str += "user: " + self.getUser + "\n"
-        str += "course: " + self.getCourse + "\n"
+        output = "title: " + self.getTitle + "\n"
+        output += "noteLink: " + self.getNoteLink + "\n"
+        output += "rating: " + str(self.getRating) + "\n"
+        output += "student: " + self.getStudent.getName + "\n"
+        output += "course: " + self.getCourse.getCourseCode + "\n"
 
-        return str
+        return output

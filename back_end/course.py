@@ -1,27 +1,34 @@
-from back_end.user import User
-
 class Course:
     def __init__(self, courseCode):
         self.__courseCode = courseCode
-        self.__users = []
+        self.__students = []
         self.__courseNotes = []
 
-
+    @property
     def getCourseCode(self):
         return self.__courseCode
 
-    def getZID(self):
-        return self.__users
+    @property
+    def getStudents(self):
+        return self.__students
+
+    @property
+    def getCourseNotes(self):
+        return self.__courseNotes
     
-    def addUsers(self, user):
-        self.__users.append(user)
+    def addStudent(self, student):
+        self.__students.append(student)
     
-    def addNotes(self, courseNote)
+    def addCourseNote(self, courseNote):
         self.__courseNotes.append(courseNote)
 
     def __str__(self):
-        str = "CourseCode: " + self.__courseCode + "\n" + "Has Users: " + self.__users + "\n"
-        str += "CourseNotes:\n"
-        for note in self.__courseNotes
-            str += note.getTitle + "\n"
-        return str
+        output = "CourseCode: " + self.getCourseCode + "\n" +  "Has students: \n" 
+
+        for student in self.getStudents:
+            output += student.getZID + "\n"
+
+        output += "CourseNotes:\n"
+        for note in self.__courseNotes:
+            output += note.getTitle + "\n"
+        return output
