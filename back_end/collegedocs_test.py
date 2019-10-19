@@ -34,6 +34,3 @@ system.downvote(note1)
 print(student1)
 print(course1)
 print(note1)
-
-
-

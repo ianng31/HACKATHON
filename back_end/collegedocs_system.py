@@ -61,9 +61,3 @@ class CollegeDocs_System():
     
     def downvote(self, note):
         note.downvote
-
-        
-
-
-
-

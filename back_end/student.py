@@ -26,7 +26,3 @@ class Student:
         for note in self.__courseNotes:
             output += note.getTitle + "\n"
         return output
-
-
-
-
