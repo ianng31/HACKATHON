@@ -1,13 +1,13 @@
 from flask import Flask, request, render_template, send_file
 import os
-import requests
+
 
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "hello"
+    return render_template("./frontend/index.html")
 
 
 
@@ -52,6 +52,9 @@ def deliver():
 
     return send_file(path, attachment_filename=filename)
 
+
+
+
 def save_link(book_link, book_name):
     the_book = requests.get(book_link, stream=True)
     with open(book_name, 'wb') as f:
@@ -62,5 +65,4 @@ def save_link(book_link, book_name):
     
 
 if __name__ == "__main__":
-
     app.run(debug=True)
