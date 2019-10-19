@@ -24,6 +24,13 @@ system.addCourseNote("James's Notes", "http/here_are_the_notes", 0, student1, co
 
 note1 = system.getCourseNote("http/here_are_the_notes")
 
+system.upvote(note1)
+system.upvote(note1)
+system.upvote(note1)
+system.upvote(note1)
+
+system.downvote(note1)
+
 print(student1)
 print(course1)
 print(note1)

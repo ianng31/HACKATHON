@@ -1,3 +1,4 @@
+import json
 from student import Student
 from course import Course
 from coursenote import CourseNote
@@ -54,6 +55,14 @@ class CollegeDocs_System():
         for course in self.courses:
             allnotes += course.getCourseNotes
         return allnotes
+    
+    def upvote(self, note):
+        note.upvote
+    
+    def downvote(self, note):
+        note.downvote
+
+        
 
 
 

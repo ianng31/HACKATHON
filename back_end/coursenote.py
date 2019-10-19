@@ -28,14 +28,16 @@ class CourseNote:
     def getCourse(self):
         return self.__course
 
-    def Upvote(self):
-        self.rating = self.__rating + 1
+    @property
+    def upvote(self):
+        self.__rating += 1
     
-    def Downvote(self):
+    @property
+    def downvote(self):
         if (self.__rating -1 < 0):
             print("can't have negative votes")
         else:
-            self.rating = self.__rating - 1
+            self.__rating -=  1
     
     def __str__(self):
         output = "title: " + self.getTitle + "\n"
