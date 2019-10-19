@@ -1,0 +1,7 @@
+Bootstrap is common + good way to rapidly start
+https://getbootstrap.com/docs/4.3/extend/approach/
+
+Script tag is where you put js.
+vue new crreates new vue app with 
+
+Style tag at the top handles all css
