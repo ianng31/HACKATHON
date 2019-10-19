@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>College Docs</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script> 
+    <script src="https://vuejs.org/js/vue.js"></script> 
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <style>
+.container {
+  margin-top:2em;
+}
+h1 {
+  margin
+}
+</style>
+  </head>
+
+  <body>
+  <div id="vue" class="container">
+
+      <!-- Header/navbar -->
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="file:///Users/henryroth/Documents/Projects/HACKATHON/frontend/index.html#">
+          <h1>College Docs</h1>
+        </a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </nav>
+      
+      <!-- Sneaky card-->
+      
+      <div v-for="items in posts">
+      <div class="card text-white bg-secondary mb-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{items.title}}</h5>
+          <p class="card-text">{{items.description}}</p>
+          <a href="file:///Users/henryroth/Documents/Projects/HACKATHON/frontend/docs.html#" class="btn btn-primary">Go to {{items.title}} notes</a>
+        </div>
+      </div>
+    </div>
+
+      
+
+
+    
+    <script>
+var vm = new Vue({
+  el: "#vue",
+  data: {
+    my_input: "7",
+    our_data: [],
+    posts: [
+      { id: 1, title: 'COMP1511', description: "Some Fun" },
+      { id: 2, title: 'COMP3821', description: "Good Fun" },
+      { id: 3, title: 'COMP6771', description: "Great Fun" }
+    ]
+  },
+  methods: {
+    dosomething: function (event) {
+      this.our_data = [{"name": "hello!"}];
+    }
+  },
+  mounted() {
+   axios.get('server')
+  .then(function (response) {
+    this.our_data = response.data;
+  }.bind(this))
+  .catch(function (error) {
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });  
+  }
+
+})
+    </script>
+  </body>
+</html>

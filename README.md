@@ -9,3 +9,4 @@ Free for users.
 Stretch goals:
 Tutor functionality
 Subscribe to subjects
+"Smartsheet" edit docs on the fly in lectures
