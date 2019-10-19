@@ -50,8 +50,7 @@ def deliver():
     path += "/" + filename
 
 
-    return send_file(path, mimetype="application/vnd.openxmlformats-officedocument.wordprocessingml.document", attachment_filename=filename)
-
+    return send_file(path, attachment_filename=filename)
 
 def save_link(book_link, book_name):
     the_book = requests.get(book_link, stream=True)
@@ -63,5 +62,5 @@ def save_link(book_link, book_name):
     
 
 if __name__ == "__main__":
-    save_link("https://docs.google.com/document/d/1clwX6hstMzNE809UHVljWYKxA4BJY8jQV0BdgU8hH4s/edit?usp=sharing","./1531/ian.docx")
+
     app.run(debug=True)
