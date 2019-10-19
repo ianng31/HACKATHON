@@ -20,14 +20,26 @@ class CollegeDocs_System():
     def enrol(user, course):
         course.addUser(user)
 
-    def addCourseNote(self, notes, rating, user, course):
-        temp = CourseNote(self, notes, rating, user, course)
+    def addCourseNote(self, title, noteLink, rating, user, course):
+        temp = CourseNote(self, title, noteLink, rating, user, course)
         #add to user
         user.addCourseNote(temp)
         #add to course
         course.addCourseNote(temp)
 
+    def getUser(self, zID):
+        for user in users
+            if (zID = user.getZID)
+                return User
+        else 
+            return "User Not Found"
     
+    def getCourse(self, courseCode):
+        for course in courses
+            if (courseCode = course.getCourseCode)
+                return course
+        else 
+            return "Course Not Found"
 
 
 
